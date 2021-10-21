@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="sales-data.js"></script>
 </head>
 <body>
     <div id="container">
@@ -16,19 +17,18 @@
             Global sales
         </header>
         <sales-filter></sales-filter>
-        <sales-data-table sales=[]></sales-data-table>
+        <sales-data-table sales=[] saleToDisplay=[] page=1 offset=10></sales-data-table>
+        <top-performer sales=[]></top-performer>
     </div>
     <script src="sales-filter.js"></script>
     <script src="sales-data-table.js"></script>
-    <script src="user-card.js"></script>
+    <script src="top-performer.js"></script>
 
     <script>
         window.addEventListener('load', () => {
-            fetch('sales-data.json')
-        .then(res => res.json())
-        .then(data => {
-           document.querySelector('sales-data-table').setAttribute("sales", JSON.stringify(data))
-        })
+           document.querySelector('sales-data-table').setAttribute("sales", JSON.stringify(dummyData))
+           document.querySelector('sales-data-table').setAttribute("saleToDisplay", JSON.stringify(dummyData))
+           document.querySelector('top-performer').setAttribute("sales", JSON.stringify(dummyData))
     })
     </script>
    

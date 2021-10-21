@@ -47,7 +47,7 @@ sales_template.innerHTML = `
     </style>
         
         <div class="filter-container">
-            <input class="company-name" type="text" placeholder="company">
+            <input class="company-name" id="company-name" type="text" placeholder="company">
             <div id="range-input">
                 <div >
                     <label for="sales-range">Minimum sales($)</label>
@@ -82,6 +82,13 @@ class SalesFilter extends HTMLElement {
         .addEventListener('click', () => {
             let v = this.shadowRoot.getElementById('sales-range').value;
             console.log('value', v)
+            const event = new CustomEvent("searchResultEvent", {
+                detail: {
+                  companyName : this.shadowRoot.querySelector('.company-name').value,
+                  rangeValue: this.shadowRoot.getElementById('sales-range').value
+                }
+          });
+          document.dispatchEvent(event);
         })
     }
     disconnectedCallback() {
@@ -95,7 +102,7 @@ class SalesFilter extends HTMLElement {
         this.shadowRoot.querySelector('#search-button')
         .removeEventListener('click', () => {
                 let v = this.shadowRoot.getElementById('sales-range').value;
-                console.log('value', v)
+              
             })
     }
 }

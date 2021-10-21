@@ -1,4 +1,4 @@
-[{"id":1,"name":"Sib","company":"Doyle-Klocko","sales":273.71},
+var dummyData = [{"id":1,"name":"Sib","company":"Doyle-Klocko","sales":273.71},
     {"id":2,"name":"Arel","company":"Turcotte-Botsford","sales":1068.24},
     {"id":3,"name":"Kris","company":"Nicolas Inc","sales":1333.4},
     {"id":4,"name":"Warde","company":"Spinka LLC","sales":1547.14},
